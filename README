@@ -1,0 +1,12 @@
+cd AMQ_STREAMS_KAFKA_POC/strimzi-grafana-prometheus
+kubectl create ns kafka
+kubectl config set-context --current --namespace=kafka
+kubectl apply -f cluster-operator/
+kubectl apply -f kafka-ephemeral.yaml
+kubectl apply -f prometheus-operator-deployment.yaml
+kubectl apply -f prometheus-additional.yaml
+kubectl create secret generic additional-scrape-configs --from-file=./prometheus-additional.yaml -n kafka
+kubectl apply -f strimzi-pod-monitor.yaml
+kubectl apply -f prometheus-rules.yaml
+kubectl apply -f prometheus.yaml
+kubectl apply -f grafana.yaml
