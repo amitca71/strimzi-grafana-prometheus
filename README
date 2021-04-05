@@ -1,4 +1,3 @@
-cd AMQ_STREAMS_KAFKA_POC/strimzi-grafana-prometheus
 kubectl create ns kafka
 kubectl config set-context --current --namespace=kafka
 kubectl apply -f cluster-operator/
