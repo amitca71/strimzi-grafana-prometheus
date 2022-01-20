@@ -1,11 +1,17 @@
-kubectl create ns kafka
-kubectl config set-context --current --namespace=kafka
-kubectl apply -f cluster-operator/
-kubectl apply -f kafka-ephemeral.yaml
-kubectl apply -f prometheus-operator-deployment.yaml
-kubectl apply -f prometheus-additional.yaml
-kubectl create secret generic additional-scrape-configs --from-file=./prometheus-additional.yaml -n kafka
-kubectl apply -f strimzi-pod-monitor.yaml
-kubectl apply -f prometheus-rules.yaml
-kubectl apply -f prometheus.yaml
-kubectl apply -f grafana.yaml
+execute strimzi on minikube, with kafka connect. using prometeus for metrics and grafana
+
+inspired by: https://dzone.com/articles/grafana-and-prometheus-setup-with-strimzi-aka-kafka - for grafana dashboards, look at the screens at the bottom
+
+prerequisite:
+1) install minikube
+2) install kubectl 
+
+execution:
+i. execute the script start-strimzi-prometeus.sh (there is some QA to do, but if u follow the steps it shoyuld work)
+ii. login to grafana localhost:3000 (admin/admin)
+iii. add prometeus as source (http://prometheus-operated:9090)
+iv. import dashboards from grafana-dashboards directory
+
+
+
+
