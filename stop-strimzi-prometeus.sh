@@ -10,7 +10,7 @@ kubectl delete -f kafka-metrics.yaml
 kubectl delete -f  kafka-connect-metrics.yaml
 kubectl delete -f prometheus-operator-deployment.yaml
 kubectl delete secret generic additional-scrape-configs -n kafka
-kubectl -n kafka delete -f ../install/cluster-operator
+kubectl -n kafka delete -f strimzi-cluster-operator-0.27.1.yaml
 kill -9 $(ps -ef  | grep port-forward  | grep grafana |  grep -v grep | awk {'print$2'})
 kill -9 $(ps -ef  | grep port-forward  | grep prometheus-prometheus-0 | grep -v grep | awk {'print$2'})
 

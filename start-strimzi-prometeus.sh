@@ -6,7 +6,7 @@ config set-context --current --namespace=kafka
 kubectl create clusterrolebinding strimzi-cluster-operator-namespaced --clusterrole=strimzi-cluster-operator-namespaced --serviceaccount kafka:strimzi-cluster-operator
 kubectl create clusterrolebinding strimzi-cluster-operator-entity-operator-delegation --clusterrole=strimzi-entity-operator --serviceaccount kafka:strimzi-cluster-operator
 kubectl create clusterrolebinding strimzi-cluster-operator-topic-operator-delegation --clusterrole=strimzi-topic-operator --serviceaccount kafka:strimzi-cluster-operator
-kubectl -n kafka create -f ../install/cluster-operator
+kubectl -n kafka create -f strimzi-cluster-operator-0.27.1.yaml
 kubectl create -f kafka-metrics.yaml
 kubectl wait kafka/my-cluster --for=condition=Ready --timeout=300s -n kafka 
 kubectl create -f  kafka-connect-metrics.yaml
