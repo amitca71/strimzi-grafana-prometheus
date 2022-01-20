@@ -10,6 +10,7 @@ execution:
 i. execute the script start-strimzi-prometeus.sh (there is some QA to do, but if u follow the steps it shoyuld work)
 ii. login to grafana localhost:3000 (admin/admin)
 iii. add prometeus as source (http://prometheus-operated:9090)
+
 iv. import dashboards from grafana-dashboards directory
 
 
