@@ -17,6 +17,7 @@ kubectl apply -f strimzi-pod-monitor.yaml
 kubectl apply -f prometheus-rules.yaml
 kubectl apply -f prometheus.yaml
 kubectl apply -f grafana.yaml
+(http://localhost:9090/metrics - to see all prometeus metrics)
 kubectl port-forward prometheus-prometheus-0 9090:9090>/dev/null 2&>1 &
 #kubectl wait kafka/grafana --for=condition=Ready --timeout=300s -n kafka 
 sleep 5
