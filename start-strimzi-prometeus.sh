@@ -1,8 +1,8 @@
 #!/bin/bash
 
 #minikube start --memory=6144
-create ns kafka
-config set-context --current --namespace=kafka
+kubectl create ns kafka
+kubectl config set-context --current --namespace=kafka
 kubectl create clusterrolebinding strimzi-cluster-operator-namespaced --clusterrole=strimzi-cluster-operator-namespaced --serviceaccount kafka:strimzi-cluster-operator
 kubectl create clusterrolebinding strimzi-cluster-operator-entity-operator-delegation --clusterrole=strimzi-entity-operator --serviceaccount kafka:strimzi-cluster-operator
 kubectl create clusterrolebinding strimzi-cluster-operator-topic-operator-delegation --clusterrole=strimzi-topic-operator --serviceaccount kafka:strimzi-cluster-operator
